@@ -1,0 +1,6 @@
+<mat-form-field appearance="legacy" [formGroup]="addTaskForm">
+  <mat-label>Task details</mat-label>
+  <input matInput formControlName="taskDetails" />
+</mat-form-field>
+<button mat-raised-button type="submit" (click)="addNewTask()">add</button>
+<button mat-raised-button mat-dialog-close>Close</button>
