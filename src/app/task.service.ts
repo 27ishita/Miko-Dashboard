@@ -6,7 +6,43 @@ import { Subject } from 'rxjs';
 })
 export class TaskService {
   updatedTask = new Subject<any>();
-  newTask = new Subject<any>();
+  // newTask = new Subject<any>();
+  projectOverview = [
+    'Get to work',
+    'Pick up groceries',
+    'Go home',
+    'Fall asleep',
+  ];
+
+  tasks = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog',
+  ];
+  inProgress = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog',
+  ];
+
+  inReview = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog',
+  ];
+  completed = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog',
+  ];
 
   constructor() {}
 
@@ -14,7 +50,30 @@ export class TaskService {
     this.updatedTask.next(task);
   }
 
-  addTask(task: any) {
-    this.newTask.next(task);
+  addTask(task: string, key: string) {
+    switch (key) {
+      case 'projectOverview':
+        this.projectOverview.push(task);
+        break;
+      case 'tasks':
+        this.tasks.push(task);
+        break;
+
+      default:
+        break;
+    }
+  }
+  updateTask(task: string, key: string, index: number) {
+    switch (key) {
+      case 'projectOverview':
+        this.projectOverview[index] = task;
+        break;
+      case 'tasks':
+        this.tasks[index] = task;
+        break;
+
+      default:
+        break;
+    }
   }
 }

@@ -1,11 +1,11 @@
-<div class="listContainer d-flex flex-row p-5">
+<div class="listContainer d-flex flex-row">
   <div class="example-container">
     <h2>Project Overview</h2>
 
     <div
       cdkDropList
       #projectOverviewList="cdkDropList"
-      [cdkDropListData]="projectOverview"
+      [cdkDropListData]="taskService.projectOverview"
       [cdkDropListConnectedTo]="[
         tasksList,
         inProgressList,
@@ -17,14 +17,16 @@
     >
       <div
         class="example-box"
-        *ngFor="let item of projectOverview; let idx = index"
+        *ngFor="let item of taskService.projectOverview; let idx = index"
         cdkDrag
       >
         {{ item }}
-        <mat-icon class="edit" (click)="editTask(item, idx, projectOverview)"
+        <mat-icon class="edit" (click)="editTask(item, 'projectOverview', idx)"
           >edit</mat-icon
         >
-        <mat-icon class="edit" (click)="deleteTask(idx, projectOverview)"
+        <mat-icon
+          class="edit"
+          (click)="deleteTask(idx, taskService.projectOverview)"
           >delete</mat-icon
         >
       </div>
@@ -32,7 +34,7 @@
     <button
       mat-raised-button
       color="primary"
-      (click)="addItem(projectOverview)"
+      (click)="addItem('projectOverview')"
     >
       Add
     </button>
@@ -44,7 +46,7 @@
     <div
       cdkDropList
       #tasksList="cdkDropList"
-      [cdkDropListData]="tasks"
+      [cdkDropListData]="taskService.tasks"
       [cdkDropListConnectedTo]="[
         inProgressList,
         projectOverviewList,
@@ -56,19 +58,19 @@
     >
       <div
         class="example-box"
-        *ngFor="let item of tasks; let idx = index"
+        *ngFor="let item of taskService.tasks; let idx = index"
         cdkDrag
       >
         {{ item
-        }}<mat-icon class="edit" (click)="editTask(item, idx, tasks)"
+        }}<mat-icon class="edit" (click)="editTask(item, 'tasks', idx)"
           >edit</mat-icon
         >
-        <mat-icon class="edit" (click)="deleteTask(idx, tasks)"
+        <mat-icon class="edit" (click)="deleteTask(idx, taskService.tasks)"
           >delete</mat-icon
         >
       </div>
     </div>
-    <button mat-raised-button color="primary" (click)="addItem(tasks)">
+    <button mat-raised-button color="primary" (click)="addItem('tasks')">
       Add
     </button>
   </div>
@@ -78,7 +80,7 @@
     <div
       cdkDropList
       #inProgressList="cdkDropList"
-      [cdkDropListData]="inProgress"
+      [cdkDropListData]="taskService.inProgress"
       [cdkDropListConnectedTo]="[
         tasksList,
         projectOverviewList,
@@ -90,19 +92,19 @@
     >
       <div
         class="example-box"
-        *ngFor="let item of inProgress; let idx = index"
+        *ngFor="let item of taskService.inProgress; let idx = index"
         cdkDrag
       >
         {{ item }}
-        <mat-icon class="edit" (click)="editTask(item, idx, inProgress)"
+        <mat-icon class="edit" (click)="editTask(item, 'inProgress', idx)"
           >edit</mat-icon
         >
-        <mat-icon class="edit" (click)="deleteTask(idx, inProgress)"
+        <mat-icon class="edit" (click)="deleteTask(idx, taskService.inProgress)"
           >delete</mat-icon
         >
       </div>
     </div>
-    <button mat-raised-button color="primary" (click)="addItem(inProgress)">
+    <button mat-raised-button color="primary" (click)="addItem('inProgress')">
       Add
     </button>
   </div>
@@ -112,7 +114,7 @@
     <div
       cdkDropList
       #inReviewList="cdkDropList"
-      [cdkDropListData]="inReview"
+      [cdkDropListData]="taskService.inReview"
       [cdkDropListConnectedTo]="[
         inProgressList,
         projectOverviewList,
@@ -124,19 +126,19 @@
     >
       <div
         class="example-box"
-        *ngFor="let item of inReview; let idx = index"
+        *ngFor="let item of taskService.inReview; let idx = index"
         cdkDrag
       >
         {{ item }}
-        <mat-icon class="edit" (click)="editTask(item, idx, inReview)"
+        <mat-icon class="edit" (click)="editTask(item, 'inReview', idx)"
           >edit</mat-icon
         >
-        <mat-icon class="edit" (click)="deleteTask(idx, inReview)"
+        <mat-icon class="edit" (click)="deleteTask(idx, taskService.inReview)"
           >delete</mat-icon
         >
       </div>
     </div>
-    <button mat-raised-button color="primary" (click)="addItem(inReview)">
+    <button mat-raised-button color="primary" (click)="addItem('inReview')">
       Add
     </button>
   </div>
@@ -146,7 +148,7 @@
     <div
       cdkDropList
       #completedList="cdkDropList"
-      [cdkDropListData]="completed"
+      [cdkDropListData]="taskService.completed"
       [cdkDropListConnectedTo]="[
         inProgressList,
         projectOverviewList,
@@ -158,19 +160,19 @@
     >
       <div
         class="example-box"
-        *ngFor="let item of completed; let idx = index"
+        *ngFor="let item of taskService.completed; let idx = index"
         cdkDrag
       >
         {{ item }}
-        <mat-icon class="edit" (click)="editTask(item, idx, completed)"
+        <mat-icon class="edit" (click)="editTask(item, 'taskService', idx)"
           >edit</mat-icon
         >
-        <mat-icon class="edit" (click)="deleteTask(idx, completed)"
+        <mat-icon class="edit" (click)="deleteTask(idx, taskService.completed)"
           >delete</mat-icon
         >
       </div>
     </div>
-    <button mat-raised-button color="primary" (click)="addItem(completed)">
+    <button mat-raised-button color="primary" (click)="addItem('completed')">
       Add
     </button>
   </div>
