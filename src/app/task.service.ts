@@ -59,13 +59,13 @@ export class TaskService {
         this.tasks.push(task);
         break;
       case 'inProgress':
-        this.tasks.push(task);
+        this.inProgress.push(task);
         break;
       case 'inReview':
-        this.tasks.push(task);
+        this.inReview.push(task);
         break;
       case 'completed':
-        this.tasks.push(task);
+        this.completed.push(task);
         break;
 
       default:
