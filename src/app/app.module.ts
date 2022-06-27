@@ -9,13 +9,13 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from './dialog/dialog.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { AddTaskComponent } from './add-task/add-task.component';
 
 @NgModule({
-  declarations: [AppComponent, DialogComponent, AddTaskComponent],
+  declarations: [AppComponent, AddTaskComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -6,7 +6,7 @@ import {
 import { Component, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTaskComponent } from './add-task/add-task.component';
-import { DialogComponent } from './dialog/dialog.component';
+
 import { TaskService } from './task.service';
 
 @Component({

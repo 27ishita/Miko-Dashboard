@@ -1,5 +1,5 @@
 <div class="listContainer d-flex flex-row">
-  <div class="example-container">
+  <div class="task-container">
     <h2>Project Overview</h2>
 
     <div
@@ -12,36 +12,41 @@
         inReviewList,
         completedList
       ]"
-      class="example-list"
+      class="task-list"
       (cdkDropListDropped)="drop($event)"
     >
       <div
-        class="example-box"
+        class="task-box"
         *ngFor="let item of taskService.projectOverview; let idx = index"
         cdkDrag
       >
         {{ item }}
-        <mat-icon class="edit" (click)="editTask(item, 'projectOverview', idx)"
-          >edit</mat-icon
-        >
-        <mat-icon
-          class="edit"
-          (click)="deleteTask(idx, taskService.projectOverview)"
-          >delete</mat-icon
-        >
+        <div class="actions">
+          <mat-icon
+            class="edit"
+            (click)="editTask(item, 'projectOverview', idx)"
+            >edit</mat-icon
+          >
+          <mat-icon
+            class="edit"
+            (click)="deleteTask(idx, taskService.projectOverview)"
+            >delete</mat-icon
+          >
+        </div>
       </div>
     </div>
     <button
       mat-raised-button
       color="primary"
       (click)="addItem('projectOverview')"
+      class="add-btn"
     >
       Add
     </button>
   </div>
 
-  <div class="example-container">
-    <h2>tasks</h2>
+  <div class="task-container">
+    <h2>Tasks</h2>
 
     <div
       cdkDropList
@@ -53,28 +58,35 @@
         inReviewList,
         completedList
       ]"
-      class="example-list"
+      class="task-list"
       (cdkDropListDropped)="drop($event)"
     >
       <div
-        class="example-box"
+        class="task-box"
         *ngFor="let item of taskService.tasks; let idx = index"
         cdkDrag
       >
-        {{ item
-        }}<mat-icon class="edit" (click)="editTask(item, 'tasks', idx)"
-          >edit</mat-icon
-        >
-        <mat-icon class="edit" (click)="deleteTask(idx, taskService.tasks)"
-          >delete</mat-icon
-        >
+        {{ item }}
+        <div class="actions">
+          <mat-icon class="edit" (click)="editTask(item, 'tasks', idx)"
+            >edit</mat-icon
+          >
+          <mat-icon class="edit" (click)="deleteTask(idx, taskService.tasks)"
+            >delete</mat-icon
+          >
+        </div>
       </div>
     </div>
-    <button mat-raised-button color="primary" (click)="addItem('tasks')">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addItem('tasks')"
+      class="add-btn"
+    >
       Add
     </button>
   </div>
-  <div class="example-container">
+  <div class="task-container">
     <h2>In Progress</h2>
 
     <div
@@ -87,28 +99,37 @@
         inReviewList,
         completedList
       ]"
-      class="example-list"
+      class="task-list"
       (cdkDropListDropped)="drop($event)"
     >
       <div
-        class="example-box"
+        class="task-box"
         *ngFor="let item of taskService.inProgress; let idx = index"
         cdkDrag
       >
         {{ item }}
-        <mat-icon class="edit" (click)="editTask(item, 'inProgress', idx)"
-          >edit</mat-icon
-        >
-        <mat-icon class="edit" (click)="deleteTask(idx, taskService.inProgress)"
-          >delete</mat-icon
-        >
+        <div class="actions">
+          <mat-icon class="edit" (click)="editTask(item, 'inProgress', idx)"
+            >edit</mat-icon
+          >
+          <mat-icon
+            class="edit"
+            (click)="deleteTask(idx, taskService.inProgress)"
+            >delete</mat-icon
+          >
+        </div>
       </div>
     </div>
-    <button mat-raised-button color="primary" (click)="addItem('inProgress')">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addItem('inProgress')"
+      class="add-btn"
+    >
       Add
     </button>
   </div>
-  <div class="example-container">
+  <div class="task-container">
     <h2>In Review</h2>
 
     <div
@@ -121,28 +142,35 @@
         tasksList,
         completedList
       ]"
-      class="example-list"
+      class="task-list"
       (cdkDropListDropped)="drop($event)"
     >
       <div
-        class="example-box"
+        class="task-box"
         *ngFor="let item of taskService.inReview; let idx = index"
         cdkDrag
       >
         {{ item }}
-        <mat-icon class="edit" (click)="editTask(item, 'inReview', idx)"
-          >edit</mat-icon
-        >
-        <mat-icon class="edit" (click)="deleteTask(idx, taskService.inReview)"
-          >delete</mat-icon
-        >
+        <div class="actions">
+          <mat-icon class="edit" (click)="editTask(item, 'inReview', idx)"
+            >edit</mat-icon
+          >
+          <mat-icon class="edit" (click)="deleteTask(idx, taskService.inReview)"
+            >delete</mat-icon
+          >
+        </div>
       </div>
     </div>
-    <button mat-raised-button color="primary" (click)="addItem('inReview')">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addItem('inReview')"
+      class="add-btn"
+    >
       Add
     </button>
   </div>
-  <div class="example-container">
+  <div class="task-container">
     <h2>Completed</h2>
 
     <div
@@ -155,24 +183,33 @@
         tasksList,
         inReviewList
       ]"
-      class="example-list"
+      class="task-list"
       (cdkDropListDropped)="drop($event)"
     >
       <div
-        class="example-box"
+        class="task-box"
         *ngFor="let item of taskService.completed; let idx = index"
         cdkDrag
       >
         {{ item }}
-        <mat-icon class="edit" (click)="editTask(item, 'taskService', idx)"
-          >edit</mat-icon
-        >
-        <mat-icon class="edit" (click)="deleteTask(idx, taskService.completed)"
-          >delete</mat-icon
-        >
+        <div class="actions">
+          <mat-icon class="edit" (click)="editTask(item, 'taskService', idx)"
+            >edit</mat-icon
+          >
+          <mat-icon
+            class="edit"
+            (click)="deleteTask(idx, taskService.completed)"
+            >delete</mat-icon
+          >
+        </div>
       </div>
     </div>
-    <button mat-raised-button color="primary" (click)="addItem('completed')">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addItem('completed')"
+      class="add-btn"
+    >
       Add
     </button>
   </div>

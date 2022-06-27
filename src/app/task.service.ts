@@ -58,6 +58,15 @@ export class TaskService {
       case 'tasks':
         this.tasks.push(task);
         break;
+      case 'inProgress':
+        this.tasks.push(task);
+        break;
+      case 'inReview':
+        this.tasks.push(task);
+        break;
+      case 'completed':
+        this.tasks.push(task);
+        break;
 
       default:
         break;
@@ -70,6 +79,15 @@ export class TaskService {
         break;
       case 'tasks':
         this.tasks[index] = task;
+        break;
+      case 'inProgress':
+        this.inProgress[index] = task;
+        break;
+      case 'inReview':
+        this.inReview[index] = task;
+        break;
+      case 'completed':
+        this.completed[index] = task;
         break;
 
       default:

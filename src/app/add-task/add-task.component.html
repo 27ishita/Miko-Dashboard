@@ -2,7 +2,11 @@
   <mat-label>Task details</mat-label>
   <input matInput formControlName="taskDetails" />
 </mat-form-field>
-<button mat-raised-button type="submit" (click)="addNewTask()">
+<button
+  mat-raised-button
+  type="submit"
+  (click)="addNewTask()"
+  [disabled]="addTaskForm.invalid"
+>
   {{ isAdd ? "add" : "update" }}
 </button>
-<button mat-raised-button mat-dialog-close>Close</button>
